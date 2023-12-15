@@ -22,33 +22,14 @@ const qrCodeSuccessCallback = (decodedText, decodedResult) => {
 
 const config = { fps: 10, qrbox: 350 };
 
+// Caso faça um botão de alterar a câmera
 let camback = false
 function changeCam() {
     camback = !camback
 }
 
-// If you want to prefer front camera
+// Camera de preferência
 html5QrCode.start({ facingMode: `${camback ? "user" : "environment"}` }, config, qrCodeSuccessCallback);
 
-// domLoaded(function() {
-//     let myqr = document.getElementById('my-result');
-//     let lastResult, countResults = 0;
 
-//     // se qrCode for encontrado
-//     function onScanSuccess(decodedText, decodedResult) {
-//         if(decodedText !== lastResult) {
-//             ++countResults;
-//             lastResult = decodedText;
-
-//             alert("Resultado: " + decodedText, decodedResult);
-//             myqr.innerHTML = `seus  qr: ${countResults} : ${decodedText}`;
-//         }
-//     }
-
-//     let htmlScanner = new Html5QrcodeScanner(
-//         "my-reader", {fps:10, qrbox:250}
-//     )
-
-//     htmlScanner.render(onScanSuccess)
-// })
 
